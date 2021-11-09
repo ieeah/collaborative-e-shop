@@ -81,7 +81,10 @@ const products = [
     },
 ];
 
-const container = document.querySelector('products-container');
+const container = document.querySelector('.products-container');
+const itemDetails = document.querySelector('.item-details');
+const favBtn = document.querySelector('.fav-btn');
+const cartBtn = document.querySelector('.cart-btn');
 
 
 
@@ -94,88 +97,54 @@ const container = document.querySelector('products-container');
 
 
 
-// // const catSmartphones = products.filter(x => x.category === 'smartphone');
-
-
-// const categories = [];
-// myFunction(products, categories);
-
-
-
-
-// function myFunction(array, arraypush) {
-//     for (let i = 0; i < array.length; i++) {
-//         const cat = array[i].category;
-//         arraypush.push(cat);
-//     }
+const catSmartphones = products.filter(x => x.category === 'smartphone');
+const catTablet = products.filter(x => x.category === 'tablet');
+const catDesktop = products.filter(x => x.category === 'desktop');
+const catAll = products.filter(x => x.category === 'all-in-one');
+const catPortable = products.filter(x => x.category === 'portable');
+const catLaptop = products.filter(x => x.category === 'laptop');
 
 
 
 
 
+// printiamo i post
+genItem(products, container)
 
+// ****funzione*****//
+function genItem(array, container){
+    container.innerHTML = "";
+    for(let i = 0; i < array.length; i++){
+        const info = array[i];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // identifichiamo il container in cui inserire la lista prodotti
-// const container = document.querySelector('.products-container');
-
-// per n oggetti contenuti nell'array, printiamo nel container la sua scheda prodotti
-// for ( let i = 0; i < products.length; i++ ) {
-//     const item = products[i];
-//     container.innerHTML += 
-//     `
-//     <div class="item-card">
-//         <div class="card-head">
-//             <h2>${item.title}</h2>
-//             <h3>Sottotitolo</h3>
-//             <img class="card-image" src="https://picsum.photos/200/300" alt="">
-//         </div>
-//         <div class="d-none item-details">
-//             <p class="item-description">
-//                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti modi perferendis et cum quis sed soluta deserunt ullam! Temporibus ad culpa, nesciunt laudantium rerum aut explicabo repellendus modi minima cumque.
-//             </p>
-//             <h4 class="item-price"></h4>
-//             <div class="sub-details">
-//                 <h5 class="item-category"></h5>
-//                 <h6 class="item-io"></h6>
-//             </div>
-//             <div class="cta">
-//                 <button class="fav-btn">
-//                     <i class="fas fa-heart"></i>
-//                 </button>
-//                 <button class="cart-btn">
-//                     <i class="fas fa-cart-plus"></i>
-//                 </button>
-//             </div>
-//         </div>
-//     </div>
-//     `;
-
-// });
-
-
+        // creare markup
+        container.innerHTML += ` 
+        <div class="item-card">
+            <div class="card-head">
+                <h2>${info.title}</h2>
+                <h3>${info.subtitle}</h3>
+                <img class="card-image" src="./img/${info.url}" alt="">
+            </div>
+            <div class="d-none item-details">
+                <p class="item-description">
+                ${info.description}
+                </p>
+                <h4 class="item-price"> PREZZO </h4>
+                <div class="sub-details">
+                    <h5 class="item-category">Categoria: ${info.category}</h5>
+                    <h6 class="item-io">Caratteristiche: ${info.io}</h6>
+                </div>
+                <div class="cta">
+                    <button class="fav-btn">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="cart-btn">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        `;
+    }
+}
