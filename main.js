@@ -112,11 +112,11 @@ for (let i = 0; i < products.length; i++) {
             </div>
         </div>
     </div>
-    `
+    `;
 }
 
 
-const itemCards = document.querySelectorAll('.item-card');
+const itemCards = document.querySelectorAll('.item-card img');
 
 for (let i = 0; i < itemCards.length; i++) {
     const itemDetails = document.getElementsByClassName('item-details');
