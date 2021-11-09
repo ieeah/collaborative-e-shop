@@ -27,20 +27,16 @@ body {
 }
 
 /* Header */
-
 header {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 80px;
     background-color: #ff8906;
-    padding-inline: 1rem;
+
 }
 
-header .right {
+.header {
+    height: 100%;
     display: flex;
-    align-items: center;
+  
 }
 
 .header-logo {
@@ -66,12 +62,15 @@ header .right {
    padding-left: 10px;
 }
 
-.fav-counter, 
-.cart-counter {
+.fav-counter {
     margin-left: 10px;
     margin-right: 10px;
 }
 
+.cart-counter {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 .header-product button {
     background-color:#0f0e17; 
@@ -103,8 +102,7 @@ header .right {
     padding: 40px;
     border-radius: 30px;
     cursor: pointer;
-    margin-block: 30px;
-    margin-inline: auto;
+    margin-bottom: 30px;
 }
 
 .item-card:hover {
