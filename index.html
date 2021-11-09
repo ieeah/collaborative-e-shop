@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -11,12 +12,45 @@
     <header>
         <h1 class="title">Caprette Tibetane Shop!</h1>
         <div class="right">
-            <div class="fav">favoriti</div>
-            <div class="cart">carrello</div>
+            <div class="fav">
+                <span>favoriti</span>
+                <span class="fav-counter">0</span>
+            </div>
+            <div class="cart">
+                <span>carrello</span>
+                <span class="cart-counter">0</span>
+            </div>
         </div>
     </header>
     
-    <div class="products-container"></div>
+    <div class="products-container">
+        <div class="item-card">
+            <div class="card-head">
+                <h2>Titolo</h2>
+                <h3>Sottotitolo</h3>
+                <img class="card-image" src="https://picsum.photos/200/300" alt="">
+            </div>
+            <div class="item-details">
+                <p class="item-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti modi perferendis et cum quis sed soluta deserunt ullam! Temporibus ad culpa, nesciunt laudantium rerum aut explicabo repellendus modi minima cumque.
+                </p>
+                <h4 class="item-price"> PREZZO </h4>
+                <div class="sub-details">
+                    <h5 class="item-category">lista categorie</h5>
+                    <h6 class="item-io">caratteristiche</h6>
+                </div>
+                <div class="cta">
+                    <button class="fav-btn clicked">
+                        <i class="fas fa-heart clicked"></i>
+                    </button>
+                    <button class="cart-btn">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

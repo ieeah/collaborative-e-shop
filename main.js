@@ -81,38 +81,101 @@ const products = [
     },
 ];
 
-
-const catSmartphones = products.filter(x => x.category === 'smartphone');
-const categories = switch ()
+const container = document.querySelector('products-container');
 
 
 
-const container = document.querySelector('.products-container');
-
-for ( let i = 0; i < products.length; i++ ) {
-    const item = products[i];
-    container.innerHTML += 
-    `
-    <div class="item">
-        <h2>${item.title}</h2>
-        <h3>${item.subtitle}</h3>
-        <div class="product-description">
-            <div class="product-image">
-                <img src="https://picsum.photos/250">
-                <div class="product-price">${item.price}</div>
-            </div>
-            <p class="product-description">
-            ${item.description}
-            </p>
-        </div>
-        <div class="product-details">
-            <h5>Categoria:</h5>
-            <span>${item.category}</span>
-        </div>
-    </div>
-    `;
-}
 
 
+
+
+
+
+
+
+
+// // const catSmartphones = products.filter(x => x.category === 'smartphone');
+
+
+// const categories = [];
+// myFunction(products, categories);
+
+
+
+
+// function myFunction(array, arraypush) {
+//     for (let i = 0; i < array.length; i++) {
+//         const cat = array[i].category;
+//         arraypush.push(cat);
+//     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // identifichiamo il container in cui inserire la lista prodotti
+// const container = document.querySelector('.products-container');
+
+// per n oggetti contenuti nell'array, printiamo nel container la sua scheda prodotti
+// for ( let i = 0; i < products.length; i++ ) {
+//     const item = products[i];
+//     container.innerHTML += 
+//     `
+//     <div class="item-card">
+//         <div class="card-head">
+//             <h2>${item.title}</h2>
+//             <h3>Sottotitolo</h3>
+//             <img class="card-image" src="https://picsum.photos/200/300" alt="">
+//         </div>
+//         <div class="d-none item-details">
+//             <p class="item-description">
+//                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti modi perferendis et cum quis sed soluta deserunt ullam! Temporibus ad culpa, nesciunt laudantium rerum aut explicabo repellendus modi minima cumque.
+//             </p>
+//             <h4 class="item-price"></h4>
+//             <div class="sub-details">
+//                 <h5 class="item-category"></h5>
+//                 <h6 class="item-io"></h6>
+//             </div>
+//             <div class="cta">
+//                 <button class="fav-btn">
+//                     <i class="fas fa-heart"></i>
+//                 </button>
+//                 <button class="cart-btn">
+//                     <i class="fas fa-cart-plus"></i>
+//                 </button>
+//             </div>
+//         </div>
+//     </div>
+//     `;
+
+// });
 
 
