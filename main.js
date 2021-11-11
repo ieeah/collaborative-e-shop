@@ -81,51 +81,111 @@ const products = [
     }
 ];
 
+const container = document.querySelector('.product-conteiner');
+const wishList = [];
+const cartList = [];
+const favCounter = document.querySelector('.fav-counter');
+const cartCounter = document.querySelector('.cart-counter');
+const buyBtn = document.getElementById('acquista');
 
-//creiamo le card
 
-const productCont = document.querySelector('.product-conteiner')
-
-
-for (let i = 0; i < products.length; i++) {
-    productCont.innerHTML += `
-    <div class="item-card">
-        <div class="card-head">
-            <h2>${products[i].title}</h2>
-            <h3>${products[i].subtitle}</h3>
-            <img src="./img/${products[i].url}" alt="">
-        </div>
-        <div class="d-none item-details">
-            <p class="item-description">${products[i].description}</p>
-            <h4 class="item-price">€ ${products[i].price}</h4>
-            <div class="sub-details">
-                <div class="item-category">${products[i].category}</div>
-                <div class="item-io">${products[i].io}</div>
-            </div>
-            <div class="cta">
-                <button class="fav-btn cta-btn">
-                    <i class="fas fa-heart "></i>
-                </button>
-                <button class="cart-btn cta-btn">
-                    <i class="fas fa-cart-plus"></i>
-                </button>
-            </div>
-        </div>
+products.forEach(e => {
+    const div = document.createElement('div');
+    const cardHead = document.createElement('div');
+    const itemsDetails = document.createElement('div');
+    const ctaDiv = document.createElement('div');
+    const favBtn = document.createElement('button');
+    const cartBtn = document.createElement('button');
+    const title = document.createElement('h2');
+    const subTitle = document.createElement('h3');
+    const image = document.createElement('img');
+    div.classList.add('item-card');
+    div.append(cardHead);
+    cardHead.classList.add('card-head');
+    title.append(`${e.title}`);
+    subTitle.append(`${e.subtitle}`);
+    image.src = `./img/${e.url}`;
+    cardHead.append(title, subTitle, image);
+    itemsDetails.classList.add('d-none', 'item-details');
+    itemsDetails.innerHTML += 
+    `
+    <p class="item-description">
+        ${e.description}
+    </p>
+    <h4 class="item-price">${e.price}</h4>
+    <div class="sub-details">
+        <div class="item-category">${e.category}</div>
+        <div class="item-io">${e.io}</div>
     </div>
     `;
+    div.append(itemsDetails);
+    itemsDetails.append(ctaDiv);
+    ctaDiv.classList.add('cta');
+    favBtn.classList.add('cta-btn');
+    cartBtn.classList.add('cta-btn');
+    ctaDiv.append(favBtn, cartBtn);
+    favBtn.innerHTML = `<i class="fas fa-heart "></i>`;
+    cartBtn.innerHTML = `<i class="fas fa-cart-plus"></i>`;
+    container.append(div);
+
+    handleEventsClick(cardHead, itemsDetails);
+
+    wishListCheck(wishList, e, favBtn, favCounter);
+    cartListCheck(cartList, e, cartBtn, cartCounter);
+});
+
+buyBtn.addEventListener('click', function(){
+    if (cartList.length == 0) {
+        alert('attenzione, il carrelo è vuoto');
+    } else if (cartList.length > 0) {
+        if (confirm('Se procedi, proseguirai al pagamento, ed il tuo carrello verrà svuotato!'))  {
+        cartList.splice(0);
+        cartCounter.classList.add('d-none');
+        };
+    };
+
+    cartCounter.innerText = cartList.length;
+
+});
+
+// funzioni
+function handleEventsClick(cardHead, itemsDetails) {
+    cardHead.addEventListener('click', function() {
+        itemsDetails.classList.toggle('d-none');
+    });
 }
 
+// quando si clicca sul bottone del cuore, si esegue un controllo nell'array wishlist, se il titolo non è presente nell'array, lo si pusha, altrimenti lo si elimina
+// il contatore nell'header stampa il numero di prodotti favoriti
+function wishListCheck(wishList, e, favBtn, favCounter) {
+    const title = e.title;
+    favBtn.addEventListener('click', function() {
+        if (!wishList.includes(title)) {
+            wishList.push(title);
+        } else {
+            const toDelete = wishList.indexOf(title);
+            wishList.splice(toDelete, 1);
+        }
 
-const itemCards = document.querySelectorAll('.item-card img');
+        if (wishList.length != 0) {
+            favCounter.classList.remove('d-none');
+        } else if (wishList.length === 0) {
+            favCounter.classList.add('d-none');
+        }
 
-for (let i = 0; i < itemCards.length; i++) {
-    const itemDetails = document.getElementsByClassName('item-details');
-    
-    itemCards[i].addEventListener('click', function() {
-        itemDetails[i].classList.toggle('d-none')
-    })
+        favCounter.innerText = wishList.length;
+    });
 }
 
-const cartCounterCont = document.querySelector('.cart-counter');
-const cartValour = document.createElement('p');
-cartCounterCont.append(cartValour);
+// quando si clicca sul bottone del carrello, si pusha l'elemento nell'array
+// il contatore nell'header stampa il numero di prodotti nel cartello
+function cartListCheck(cartList, e, cartBtn, cartCounter) {
+    const title = e.title;
+    cartBtn.addEventListener('click', function() {
+        cartList.push(title); 
+        if (cartList.length != 0) {
+            cartCounter.classList.remove('d-none');
+        }
+        cartCounter.innerText = cartList.length;
+    });
+}

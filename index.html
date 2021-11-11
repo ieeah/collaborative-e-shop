@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+[17:16, 11/11/2021] Calogero Bonito: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -21,12 +21,16 @@
             </div>
 
             <div class="header-product">
-                <div class="fav"><i class="fas fa-star"></i> Favoriti</div>
-                <div class="fav-counter">0</div>
-                <div class="cart"><i class="fas fa-shopping-cart"></i> Carrello</div>
-                <div class="cart-counter"></div>
-                <button class="buy-btn">
-                    <i class="fas fa-money-bill-wave"></i> ACQUISTA
+                <div class="fav">
+                    <i class="fas fa-star"></i>
+                    <div class="fav-counter d-none">0</div>
+                </div>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-counter d-none">0</div>
+                </div>
+                <button id="acquista">
+                    <i class="fas fa-money-bill-wave buy-btn"></i> ACQUISTA
                 </button>
             </div>
 
@@ -67,5 +71,6 @@
 
     <!-- JS -->
     <script src="main.js"></script>
+    <!-- <script src="./js/script.js"></script> -->
 </body>
 </html>

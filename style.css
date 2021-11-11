@@ -1,4 +1,5 @@
 /* GENERAL STYLE */
+//* GENERAL STYLE */
 /* Reset */
 * {
     margin: 0;
@@ -22,9 +23,6 @@ body {
     margin: 0 auto;
 }
 
-.d-none {
-    display: none;
-}
 
 /* Header */
 header {
@@ -62,14 +60,47 @@ header {
    padding-left: 10px;
 }
 
-.fav-counter {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
+.fav-counter,
 .cart-counter {
     margin-left: 10px;
     margin-right: 10px;
+    border: 1px solid #000;
+    width: 10px;
+    height: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 30px;
+    top: -12px;
+}
+
+.fav, 
+.cart {
+    position: relative;
+    display: flex;
+    margin-right: 25px;
+}
+
+header .fas:not(.buy-btn){
+    font-size: 3rem;
+}
+
+
+
+#acquista {
+    display: flex;
+    align-items: center;
+}
+
+.buy-btn {
+    margin-right: 12px;
+    font-size: 2rem;
 }
 
 .header-product button {
@@ -87,6 +118,7 @@ header {
     color: #0f0e17; 
     border: 1px solid #0f0e17; 
 }
+
 /* card */
 .product-conteiner {
     display: flex;
@@ -127,7 +159,7 @@ header {
     border: 1px solid #0f0e17;
     background-color: transparent;
     border-radius: 20px;
-    cursor:pointer
+    cursor: pointer;
 }
 
 .cta-btn:hover {
@@ -137,6 +169,10 @@ header {
 
 .clicked {
     transform: scale(1.5);
-    color: #fff
-};
+    color: #fff;
+}
 
+
+.d-none {
+    display: none;
+}
