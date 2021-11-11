@@ -1,5 +1,5 @@
+
 /* GENERAL STYLE */
-//* GENERAL STYLE */
 /* Reset */
 * {
     margin: 0;
@@ -62,22 +62,38 @@ header {
 
 .fav-counter,
 .cart-counter {
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid #000;
-    width: 10px;
-    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 10px;
+    border: 2px solid #000;
+    width: 25px;
+    height: 25px;
     padding: 8px;
     border-radius: 50%;
     background-color: #fff;
     color: #000;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     left: 30px;
     top: -12px;
+}
+
+.cart-counter.active-animation,
+.fav-counter.active-animation {
+    animation: bounce .4s ease-out;
+}
+
+.cart-counter.active-animation-rev,
+.fav-counter.active-animation-rev {
+    animation: bounce reverse .2s ease-out;
+}
+
+@keyframes bounce{
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-5px);}
+    75% {transform: translateY(5px);}
+    100% {transform: translateY(0px);}
 }
 
 .fav, 

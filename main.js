@@ -170,10 +170,22 @@ function wishListCheck(wishList, e, favBtn, favCounter) {
         if (wishList.length != 0) {
             favCounter.classList.remove('d-none');
         } else if (wishList.length === 0) {
+            favCounter.classList.add('active-animation-rev');
+            setTimeout(() => {
+            favCounter.classList.remove('active-animation-rev');
+            }, 500);
+
+            setTimeout(() => {
             favCounter.classList.add('d-none');
+            }, 800);
+            
         }
 
         favCounter.innerText = wishList.length;
+        favCounter.classList.add('active-animation');
+        setTimeout(() => {
+        favCounter.classList.remove('active-animation');
+        }, 500);
     });
 }
 
@@ -186,6 +198,11 @@ function cartListCheck(cartList, e, cartBtn, cartCounter) {
         if (cartList.length != 0) {
             cartCounter.classList.remove('d-none');
         }
+    
         cartCounter.innerText = cartList.length;
+        cartCounter.classList.add('active-animation');
+    setTimeout(() => {
+      cartCounter.classList.remove('active-animation');
+    }, 500);
     });
 }
